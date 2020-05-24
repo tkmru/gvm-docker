@@ -13,7 +13,7 @@ services:
       - "gvm-connect:/usr/local/var/run"
       - "openvas-data:/usr/local/var/lib/openvas"
       - "gvm-data:/usr/local/var/lib/gvm"
-      - "/etc/localtime:/etc/localtime:ro"
+      - "/var/db/timezone/zoneinfo/Asia/Tokyo:/etc/localtime:ro"
 
   gvm-gvmd:
     image: "dgiorgio/gvmd"
@@ -26,7 +26,7 @@ services:
       - "openvas-data:/usr/local/var/lib/openvas"
       - "gvm-data:/usr/local/var/lib/gvm"
       # - "/tmp/ssmtp=/etc/ssmtp" # optional - ssmtp config path
-      - "/etc/localtime:/etc/localtime:ro"
+      - "/var/db/timezone/zoneinfo/Asia/Tokyo:/etc/localtime:ro"
     links:
       - gvm-openvas
     depends_on:
@@ -41,7 +41,7 @@ services:
       - "443:443"
     volumes:
       - "gvm-data:/usr/local/var/lib/gvm"
-      - "/etc/localtime:/etc/localtime:ro"
+      - "/var/db/timezone/zoneinfo/Asia/Tokyo:/etc/localtime:ro"
     links:
       - gvm-gvmd
     depends_on:
