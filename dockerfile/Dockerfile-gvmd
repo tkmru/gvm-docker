@@ -32,7 +32,7 @@ COPY ./entrypoint/gvmd/docker-entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
-CMD ["gvmd", "-f", "-v", "--listen=0.0.0.0", "--port=9390"]
+CMD ["gvmd", "-f", "-v", "--listen=127.0.0.1", "--port=9390"]
 
 VOLUME ["/usr/local/var/lib/gvm"]
 EXPOSE 9390

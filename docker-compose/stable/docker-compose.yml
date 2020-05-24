@@ -8,7 +8,7 @@ services:
     hostname: "openvas"
     restart: always
     ports:
-      - "9391-9392:9391-9392"
+      - "127.0.0.1:9391-9392:9391-9392"
     volumes:
       - "gvm-connect:/usr/local/var/run"
       - "openvas-data:/usr/local/var/lib/openvas"
@@ -20,7 +20,7 @@ services:
     hostname: "gvmd"
     restart: always
     ports:
-      - "9390:9390"
+      - "127.0.0.1:9390:9390"
     volumes:
       - "gvm-connect:/usr/local/var/run"
       - "openvas-data:/usr/local/var/lib/openvas"
@@ -37,8 +37,8 @@ services:
     hostname: "gsa"
     restart: always
     ports:
-      - "80:80"
-      - "443:443"
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
     volumes:
       - "gvm-data:/usr/local/var/lib/gvm"
       - "/var/db/timezone/zoneinfo/Asia/Tokyo:/etc/localtime:ro"
